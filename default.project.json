@@ -1,0 +1,55 @@
+{
+  "name": "Template-FPF-Rojo-Project",
+  "emitLegacyScripts": false,
+  "tree": {
+    "$className": "DataModel",
+
+    "ReplicatedStorage": {
+      "$path": "src/ReplicatedStorage"
+    },
+
+    "ReplicatedFirst": {
+      "$path": "src/ReplicatedFirst"
+    },
+
+    "ServerStorage": {
+      "$path": "src/ServerStorage"
+    },
+
+    "ServerScriptService": {
+      "$path": "src/ServerScriptService"
+    },
+
+    "StarterGui": {
+      "$path": "src/StarterGui"
+    },
+
+    "StarterPack": {
+      "$path": "src/StarterPack"
+    },
+
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "$path": "src/StarterPlayer"
+      },
+      "StarterCharacterScripts": {
+        "$path": "src/StarterCharacter"
+      }
+    },
+
+    "Workspace": {
+      "$properties": {
+        "FilteringEnabled": true,
+        "EditorLiveScripting": true,
+        "ClientAnimatorThrottling": true
+      }
+    },
+
+    "SoundService": {
+      "$properties": {
+        "RespectFilteringEnabled": true
+      },
+      "$path": "src/SoundService"
+    }
+  }
+}
