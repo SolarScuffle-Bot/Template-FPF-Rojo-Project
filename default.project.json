@@ -39,9 +39,7 @@
 
     "Workspace": {
       "$properties": {
-        "FilteringEnabled": true,
-        "EditorLiveScripting": true,
-        "ClientAnimatorThrottling": true
+        "FilteringEnabled": true
       }
     },
 
