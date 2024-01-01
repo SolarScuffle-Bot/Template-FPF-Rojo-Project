@@ -6,3 +6,4 @@ realm = "shared"
 
 [dependencies]
 Signal = "data-oriented-house/lemonsignal@1.2.0"
+TableValue = "data-oriented-house/tablevalue@2.0.1"
