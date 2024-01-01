@@ -1,2 +1,2 @@
 *.luau linguist-language=Lua
-*.zap linguist-language=Haskell
+*.zap linguist-language=Rust
