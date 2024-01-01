@@ -68,12 +68,12 @@ end
 local function addDescendantInstances(assets)
 	for _, dir in ipairs(assets.directories) do
 		print("\tADDING DIRECTORY " .. dir)
-		-- remodel.createDirAll(dir)
+		remodel.createDirAll(dir)
 	end
 
 	for path, instance in pairs(assets.files) do
 		print("\tADDING FILE " .. path .. ".rbxm")
-		-- remodel.writeModelFile(path .. ".rbxm", instance)
+		remodel.writeModelFile(path .. ".rbxm", instance)
 	end
 end
 
