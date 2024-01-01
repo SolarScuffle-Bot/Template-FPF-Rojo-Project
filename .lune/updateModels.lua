@@ -1,4 +1,4 @@
-local remodel = require('.lune/remodel')
+local remodel = require('remodel')
 
 local game = remodel.readPlaceFile(".lune/Assets.rbxl") -- Do whatever you need to read this file
 
@@ -22,10 +22,10 @@ local function populateAssetsWithInstances(folder, assets, path)
 	path = path or (folder.Name .. "/")
 
 	for _, v in folder:GetChildren() do
-		if not string.find(v.Name, "_RemodelIgnore") then
+		if not string.find(v.Name, "_LUNEIgnore") then
 			if v.ClassName == "Folder" then
 				local newPath = path .. v.Name .. "/"
-				if not pcall(remodel.isDir, "src/" .. newPath) then
+				if not remodel.isDir("src/" .. newPath) then
 					local explorerPath = newPath:gsub("/", "."):sub(1, -2)
 					error(
 						"Found a folder 'game.Workspace."
@@ -35,6 +35,7 @@ local function populateAssetsWithInstances(folder, assets, path)
 							.. "' does not exist. If you are modifying the Asset place, make sure the DataModel reflects the project's architecture."
 					)
 				else
+					table.insert(assets.directories, "src/" .. newPath)
 					populateAssetsWithInstances(v, assets, newPath)
 				end
 			else
@@ -51,13 +52,13 @@ local function removeDescendantInstances(dir)
 	for k, v in remodel.readDir(dir) do
 		local newPath = dir .. v
 		if remodel.isDir(newPath) then
-			if string.find(v, "_REMODEL") then
+			if string.find(v, "_LUNE") then
 				print("\tREMOVING DIRECTORY " .. newPath)
 				remodel.removeDir(newPath .. "/")
 			else
 				removeDescendantInstances(newPath .. "/")
 			end
-		elseif string.find(v, "_REMODEL") or string.find(v, ".rbxm") or string.find(v, ".rbxmx") then
+		elseif string.find(v, "_LUNE") or string.find(v, ".rbxm") or string.find(v, ".rbxmx") then
 			print("\tREMOVING FILE " .. newPath)
 			remodel.removeFile(newPath)
 		end
@@ -67,12 +68,12 @@ end
 local function addDescendantInstances(assets)
 	for _, dir in ipairs(assets.directories) do
 		print("\tADDING DIRECTORY " .. dir)
-		remodel.createDirAll(dir)
+		-- remodel.createDirAll(dir)
 	end
 
 	for path, instance in pairs(assets.files) do
 		print("\tADDING FILE " .. path .. ".rbxm")
-		remodel.writeModelFile(path .. ".rbxm", instance)
+		-- remodel.writeModelFile(path .. ".rbxm", instance)
 	end
 end
 
