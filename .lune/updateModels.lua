@@ -1,4 +1,6 @@
-local game = remodel.readPlaceFile(".remodel/Assets.rbxl") -- Do whatever you need to read this file
+local remodel = require('.lune/remodel')
+
+local game = remodel.readPlaceFile(".lune/Assets.rbxl") -- Do whatever you need to read this file
 
 local function clearTextures(model)
 	for _, instance in ipairs(model:GetDescendants()) do
