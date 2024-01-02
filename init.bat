@@ -2,5 +2,5 @@ aftman install
 call ./wallyinstall
 call ./zaprun
 stylua src
-lune updateModels
+lune updatemodels
 call ./watchsource
