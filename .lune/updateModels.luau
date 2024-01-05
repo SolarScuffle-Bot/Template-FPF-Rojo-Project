@@ -104,10 +104,10 @@ for _, name in ipairs {
 	end
 end
 
+removeDescendantInstances 'src/'
+
 if not next(assets.files) then
 	error 'Unable to find any assets, most likely because there are no service folders under game.Workspace'
 end
-
-removeDescendantInstances 'src/'
 
 addDescendantInstances(assets)
