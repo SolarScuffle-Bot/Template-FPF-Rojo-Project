@@ -11,7 +11,7 @@ A fully managed rojo project to support instance-friendly Folder-Per-Feature arc
 You may have to restart the Rojo server to see all the changes.
 
 ### My Models Are Corrupted!
-Due to a bug in Lune (or Rojo?) models can get corrupted.
+Due to a bug in Rojo models can get corrupted.
 1. Run `rojo build --output build.rbxl` in the terminal
 2. Open `build.rbxl` in studio
 3. Publish the place as your production place
